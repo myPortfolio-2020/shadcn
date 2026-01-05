@@ -1,5 +1,13 @@
-import { BellRing, MoonStar } from "lucide-react";
-import React from "react";
+import {
+  BellRing,
+  LogOut,
+  MessageCircleQuestionMark,
+  MoonStar,
+  ReceiptText,
+  UserPen,
+} from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,14 +31,40 @@ const Navbar = () => {
             </div>
             <div className="m-2">
               <DropdownMenu>
-                <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuTrigger>
+                  <Avatar>
+                    <AvatarImage src="/aaa.jpg" />
+                    <AvatarFallback></AvatarFallback>
+                  </Avatar>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent sideOffset={6}>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
-                  <DropdownMenuItem>Team</DropdownMenuItem>
-                  <DropdownMenuItem>Subscription</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <UserPen /> Profile
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <ReceiptText />
+                    Billing
+                  </DropdownMenuItem>
+                  <DropdownMenuItem variant="destructive">
+                    <LogOut /> Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <div className="m-2">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button>
+                    <MessageCircleQuestionMark />
+                    <span className="sr-only">Help</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>menu 1</DropdownMenuItem>
+                  <DropdownMenuItem>menu 2</DropdownMenuItem>
+                  <DropdownMenuItem>menu 3</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
